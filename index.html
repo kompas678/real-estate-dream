@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <title>Real Estate Dream</title>
+
+  <meta charset="UTF-8" />
+  <meta name="description" content="description" />
+  <meta name="keywords" content="keywords" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+
+
+
+  <link rel="shortcut icon" href="resources/favicon.ico" type="image/x-icon" />
+
+  <link rel="preload" href="fonts/Metropolis-Regular.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="fonts/Metropolis-ExtraBold.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="fonts/Metropolis-Bold.woff2" as="font" type="font/woff2" crossorigin />
+  <style>
+    .popup {
+      visibility: hidden;
+      opacity: 0;
+    }
+  </style>
+  <link rel="stylesheet" href="resources/swiper/swiper-bundle.min.css" />
+
+  <link rel="stylesheet" href="css/main.min.css" />
+
+  <link rel="stylesheet" href="resources/simplebar/simplebar.min.css" />
+  <style>
+    .slider-testimonies__text {
+      overflow-x: hidden;
+    }
+    .simplebar-scrollbar::before {
+      background-color: #82cde5;
+    }
+  </style>
+</head>
+
+
+  <body>
+    <svg style="display: none">
+  <symbol id="angle-slider-prev" viewBox="0 0 12 18">
+    <title>slider-button-prev</title>
+    <path
+      d="M1.333 10.067l7.6 7.466a1.289 1.289 0 001.867 0 1.289 1.289 0 000-1.866L4.267 9 10.8 2.333a1.289 1.289 0 000-1.866c-.267-.267-.533-.4-.933-.4S9.2.2 8.933.467l-7.6 7.466C.8 8.6.8 9.4 1.333 10.067c0-.134 0-.134 0 0z"
+    />
+  </symbol>
+  <symbol id="angle-slider-next" viewBox="0 0 12 18">
+    <title>slider-button-next</title>
+    <path
+      d="M10.72 8.053L3.173.52A1.333 1.333 0 101.28 2.4l6.6 6.667-6.6 6.6a1.333 1.333 0 000 1.88 1.332 1.332 0 00.947.4 1.334 1.334 0 00.946-.4l7.547-7.534a1.332 1.332 0 000-1.96z"
+    />
+  </symbol>
+  <symbol viewBox="0 0 40 40" id="facebook">
+    <path
+      d="M25.2 8.867h3.133v-5.3a43.515 43.515 0 00-4.566-.233c-4.534 0-7.634 2.766-7.634 7.833v4.367h-5.116v5.933h5.116v15.2h6.134v-15.2h5.1l.766-5.933h-5.866V11.75c0-1.75.466-2.883 2.933-2.883z"
+    />
+  </symbol>
+  <symbol viewBox="0 0 100 100" id="file">
+    <path
+      d="M88.52 24.674L63.623 1.06C62.765.43 61.928 0 60.847 0H14.255c-2.347 0-4.04 1.918-4.04 4.04v91.92c0 2.346 1.918 4.04 4.04 4.04h71.49c2.347 0 4.04-1.694 4.04-4.04V27.448c0-1.061-.407-1.918-1.264-2.776zM64.684 12.939l12.775 12.163H64.684V12.939zm17.245 79.184H18.092V7.877h38.51v20.857c0 2.347 1.919 4.04 4.04 4.04H81.93v59.348z"
+    />
+    <path
+      d="M62.194 37.776c-1.755-.919-3.898-.225-4.816 1.51L36.316 79.714c-.918 1.755-.285 4 1.51 4.817 2.041.938 4.184-.286 4.817-1.51l21.061-40.43a3.569 3.569 0 00-1.51-4.815zM47.153 49.245c0-6.857-4.734-12.408-10.592-12.408-5.857 0-10.591 5.55-10.591 12.408 0 6.857 4.755 12.388 10.591 12.388 5.837 0 10.592-5.551 10.592-12.388zm-14.04 0c0-2.898 1.55-5.265 3.448-5.265s3.45 2.347 3.45 5.265c0 2.918-1.531 5.245-3.45 5.245-1.918 0-3.449-2.347-3.449-5.245zM63.439 60.653c-5.857 0-10.592 5.551-10.592 12.408 0 6.857 4.735 12.408 10.592 12.408S74.03 79.92 74.03 73.061c0-6.857-4.735-12.408-10.592-12.408zm0 17.653c-1.898 0-3.45-2.347-3.45-5.265 0-2.918 1.552-5.266 3.45-5.266 1.898 0 3.449 2.347 3.449 5.266 0 2.918-1.53 5.265-3.45 5.265z"
+    />
+  </symbol>
+  <symbol viewBox="0 0 100 100" id="house">
+    <path
+      d="M98.191 43.404L73.723 25.195V4.255A4.267 4.267 0 0069.468 0a4.268 4.268 0 00-4.255 4.255v14.607l-12.766-9.5a4.15 4.15 0 00-4.894 0L1.81 43.404C-.106 44.681-.32 47.234.958 49.15c1.276 1.915 3.83 2.128 5.744.851l4.256-3.15v48.895A4.268 4.268 0 0015.213 100H85c2.34 0 4.255-1.915 4.468-4.255V47.15L93.298 50a4.088 4.088 0 002.553.851c1.276 0 2.553-.426 3.191-1.702 1.277-1.702 1.064-4.468-.85-5.745zM44.574 91.702V70.426h11.064v21.276H44.574zm36.383 0H64.15V66.17a4.268 4.268 0 00-4.255-4.255H40.532a4.268 4.268 0 00-4.255 4.255v25.532H19.255V48.085h61.702v43.617zm-60.17-52.128l29.32-21.702 16.414 12.21a4.3 4.3 0 00.876.652l11.885 8.84H20.787z"
+    />
+  </symbol>
+  <symbol viewBox="0 0 40 40" id="instagram">
+    <path
+      d="M28.9 9.1a2 2 0 100 4 2 2 0 000-4zm7.667 4.034a12.649 12.649 0 00-.767-4.05 8.233 8.233 0 00-1.933-2.95 7.834 7.834 0 00-2.95-1.917 12.167 12.167 0 00-4.05-.783c-1.767-.1-2.334-.1-6.867-.1-4.533 0-5.1 0-6.867.1a12.167 12.167 0 00-4.05.783 7.967 7.967 0 00-2.95 1.917 7.833 7.833 0 00-1.916 2.95 12.167 12.167 0 00-.784 4.05c-.1 1.766-.1 2.333-.1 6.866 0 4.534 0 5.1.1 6.867.029 1.385.294 2.754.784 4.05a7.833 7.833 0 001.916 2.95 7.966 7.966 0 002.95 1.916c1.296.49 2.666.755 4.05.784 1.767.1 2.334.1 6.867.1 4.533 0 5.1 0 6.867-.1a12.168 12.168 0 004.05-.784 7.834 7.834 0 002.95-1.916 8.083 8.083 0 001.933-2.95c.475-1.3.734-2.667.767-4.05 0-1.767.1-2.334.1-6.867 0-4.533 0-5.1-.1-6.867zm-3 13.533a9.352 9.352 0 01-.567 3.1 5.1 5.1 0 01-1.25 1.916c-.54.551-1.195.978-1.917 1.25a9.352 9.352 0 01-3.1.567c-1.666.084-2.283.1-6.666.1-4.384 0-5 0-6.667-.1a9.552 9.552 0 01-3.233-.5 5.452 5.452 0 01-1.834-1.25A5 5 0 017.1 29.834a9.234 9.234 0 01-.667-3.167c0-1.667-.1-2.284-.1-6.667s0-5 .1-6.666a9.234 9.234 0 01.584-3.167 5 5 0 011.316-1.833A5.233 5.233 0 0110.167 7a9.55 9.55 0 013.166-.566c1.667 0 2.284-.1 6.667-.1s5 0 6.667.1a9.35 9.35 0 013.1.566 5.1 5.1 0 011.983 1.334A5.1 5.1 0 0133 10.167a9.35 9.35 0 01.567 3.167c.083 1.666.1 2.283.1 6.666 0 4.384-.017 5-.1 6.667zM20 11.45A8.55 8.55 0 1028.567 20 8.532 8.532 0 0020 11.45zm0 14.1a5.55 5.55 0 110-11.099 5.55 5.55 0 010 11.1z"
+    />
+  </symbol>
+  <symbol viewBox="0 0 40 40" id="search-alt">
+    <path
+      d="M35.117 28.05l-3.45-3.533a5.133 5.133 0 00-5.667-.95l-1.5-1.5a11.667 11.667 0 10-2.35 2.35l1.483 1.483a5 5 0 00.884 5.767L28.05 35.2a5 5 0 007.067 0 5 5 0 000-7.15zm-14.134-7.067A8.333 8.333 0 119.213 9.184a8.333 8.333 0 0111.77 11.8zm11.784 11.784a1.667 1.667 0 01-2.367 0l-3.533-3.534a1.666 1.666 0 010-2.366 1.666 1.666 0 012.366 0l3.534 3.533a1.666 1.666 0 010 2.367z"
+    />
+  </symbol>
+  <symbol viewBox="0 0 40 40" id="twitter">
+    <path
+      d="M38.318 6.583a1.667 1.667 0 00-2.516-1.433 12.465 12.465 0 01-3.124 1.323 8.586 8.586 0 00-5.623-2.07 8.72 8.72 0 00-8.705 8.439 18.386 18.386 0 01-11.357-6.54 1.687 1.687 0 00-1.428-.609 1.665 1.665 0 00-1.308.834 8.793 8.793 0 00-.404 7.948l-.003.002a1.735 1.735 0 00-.827 1.483c-.002.245.013.49.045.732a8.642 8.642 0 002.614 5.52 1.663 1.663 0 00-.11 1.283 8.673 8.673 0 003.936 4.87 12.44 12.44 0 01-5.983.747 1.667 1.667 0 00-1.108 3.055A21.57 21.57 0 0014.1 35.602a21.313 21.313 0 0020.775-15.605c.588-1.972.889-4.019.892-6.077l-.002-.333a9.616 9.616 0 002.553-7.004zm-5.51 5.354a1.659 1.659 0 00-.39 1.17c.017.275.015.551.015.813a18.038 18.038 0 01-.756 5.133A17.808 17.808 0 0114.1 32.27c-1.431 0-2.858-.168-4.25-.502a15.799 15.799 0 004.903-2.606 1.666 1.666 0 00-1.003-2.977 5.346 5.346 0 01-3.69-1.558c.249-.047.496-.105.742-.175a1.666 1.666 0 00-.134-3.239 5.331 5.331 0 01-3.75-2.876c.302.04.605.067.909.076a1.7 1.7 0 001.64-1.16 1.667 1.667 0 00-.667-1.895 5.327 5.327 0 01-2.365-4.785 21.69 21.69 0 0013.683 5.8 1.7 1.7 0 001.362-.6 1.667 1.667 0 00.343-1.445 5.262 5.262 0 01-.145-1.215 5.384 5.384 0 015.377-5.376 5.307 5.307 0 013.908 1.7 1.655 1.655 0 001.535.496c.685-.133 1.36-.312 2.02-.536a11.133 11.133 0 01-1.71 2.54z"
+    />
+  </symbol>
+</svg>
+
+
+    <div class="wrapper">
+      <header class="header _lock-padding">
+  <div class="header__wrapper _header-normal _lock-padding">
+    <div class="header__container _container menu">
+      <a href="#" class="menu__logo" aria-label="Logo Dream">
+        <img src="img/logo/logo.svg" alt="Ooops!" />
+      </a>
+      <button class="menu__icon" type="button" aria-label="Menu">
+        <span></span>
+      </button>
+      <div class="menu__body">
+        <ul class="menu__list">
+          <li><a href="#" class="menu__link">Find House</a></li>
+          <li><a href="#" class="menu__link">Community</a></li>
+          <li><a href="#" class="menu__link">Our Blog</a></li>
+        </ul>
+        <div class="menu__items-auth items-auth">
+          <a href="#" class="items-auth__register">Register</a>
+          <button class="items-auth__login popup-btn" type="button" data-path="popup">Login</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+      <main class="page">
+        <section class="top">
+  <div class="top__container _container">
+    <h1 class="top__title">
+      <span>CHOOSE YOUR DREAM HOUSE</span>
+    </h1>
+    <div class="top__search search">
+      <form id="form-search" class="search__box" action="#" method="POST">
+        <div class="search__field">
+          <input class="search__input" aria-label="Location" type="text" maxlength="70" name="location" placeholder="Bali, Indonesia" required />
+        </div>
+        <div class="search__field search__field--select">
+          <select class="search__select" size="1" name="housetype" aria-label="House type">
+            <option value="deluxe">Deluxe Type</option>
+            <option value="premium">Premium Type</option>
+            <option value="elite">Elite Type</option>
+          </select>
+        </div>
+        <button type="submit" class="search__button" aria-label="Search">
+          <svg>
+            <use href="#search-alt" />
+          </svg>
+        </button>
+      </form>
+    </div>
+    <div class="top__search-result">
+      <h2 class="top__subtitle">The Modern Deluxe House</h2>
+      <p class="top__text">Denpasar, Bali, Indonesia</p>
+    </div>
+  </div>
+  <div class="top__slider slider-top">
+    <div class="slider-top__container swiper-container">
+      <div class="slider-top__wrapper swiper-wrapper">
+        <div class="slider-top__slide swiper-slide">
+          <div class="slider-top__image _img">
+            <picture>
+              <source type="image/webp" media="(max-width: 479.98px)" data-srcset="img/top-block/01-mobile.webp" srcset="#" />
+              <source type="image/jpeg" media="(max-width: 479.98px)" data-srcset="img/top-block/01-mobile.jpg" srcset="#" />
+              <source type="image/webp" data-srcset="img/top-block/01.webp" srcset="#" />
+              <img class="swiper-lazy" data-src="img/top-block/01.jpg" src="#" alt="Ooops!" />
+            </picture>
+            <div class="swiper-lazy-preloader"></div>
+          </div>
+        </div>
+        <div class="slider-top__slide swiper-slide">
+          <div class="slider-top__image _img">
+            <picture>
+              <source type="image/webp" data-srcset="img/top-block/02.webp" srcset="#" />
+              <img class="swiper-lazy" data-src="img/top-block/02.jpg" src="#" alt="Ooops!" />
+            </picture>
+            <div class="swiper-lazy-preloader"></div>
+          </div>
+        </div>
+      </div>
+      <div class="slider-top__buttons slider-btn swiper-button">
+        <div class="slider-top__button-prev slider-btn__button-prev swiper-button-prev">
+          <svg>
+            <use href="#angle-slider-prev" />
+          </svg>
+        </div>
+        <div class="slider-top__button-next slider-btn__button-next swiper-button-next">
+          <svg>
+            <use href="#angle-slider-next" />
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="best-service _indents">
+  <div class="best-service__container _container">
+    <div class="best-service__header section-header"><span>01</span>BEST SERVICE</div>
+    <div class="best-service__box-heading">
+      <h2 class="best-service__title title">Why Choose Us?</h2>
+      <p class="best-service__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eros, viverra aenean nisl lacus. Sit id vulputate.</p>
+    </div>
+    <div class="best-service__row">
+      <div class="best-service__column">
+        <a href="#" target="_blank" rel="noopener" class="best-service__content best-service__content--01">
+          <svg>
+            <use href="#house" />
+          </svg>
+          <h3 class="best-service__subtitle"><span>01</span>Property Insurance</h3>
+          <p class="best-service__desc">We offer our customers for property insurance for their better life.</p>
+          <div class="best-service__link">Learn More</div>
+        </a>
+      </div>
+      <div class="best-service__column">
+        <a href="#" target="_blank" rel="noopener" class="best-service__content best-service__content--02">
+          <svg viewBox="0 0 100 100">
+            <g clip-path="url(#clip0)">
+              <path
+                d="M99.681 48.698c-.424-.849-1.273-1.698-2.335-2.123L68.473 35.111c2.336-4.883 3.397-10.19 3.185-15.073-.212-6.157-2.76-11.252-6.793-14.861-10.19-8.917-27.6-5.732-39.064 7.43-4.246 4.883-7.43 10.615-8.704 16.56v.849L2.448 37.022C.325 38.083-.524 40.206.325 42.329L12.64 72.9a4.205 4.205 0 002.335 2.336L76.329 99.65c.424.212 1.061.212 1.486.212 1.486 0 3.184-1.06 3.821-2.972l18.046-45.007a4.142 4.142 0 000-3.185zM31.959 17.915c8.28-9.553 20.805-12.526 27.387-6.793 2.972 2.76 3.821 6.58 4.034 9.128.212 3.822-.637 7.856-2.548 11.89l-24.627-9.767c-1.061-.424-2.335-.212-3.397.212l-5.732 2.76c1.274-2.76 2.972-5.095 4.883-7.43zM75.48 90.309L19.645 68.23 9.667 42.966l25.051-12.1 21.23 8.491c-8.28 9.554-20.805 12.314-27.387 6.581-1.698-1.486-4.458-1.273-5.944.425-1.486 1.698-1.274 4.458.424 5.944 3.822 3.185 8.705 4.883 14.012 4.883 8.492 0 18.046-4.458 25.052-12.313.637-.85 1.274-1.486 1.91-2.335l26.326 10.402L75.479 90.31z"
+              />
+            </g>
+            <defs>
+              <clipPath id="clip0"><path d="M0 0h100v100H0z" /></clipPath>
+            </defs>
+          </svg>
+          <h3 class="best-service__subtitle"><span>02</span>Tax Advantage</h3>
+          <p class="best-service__desc">You get may type facilities specially tax advantage is one them.</p>
+          <div class="best-service__link">Learn More</div>
+        </a>
+      </div>
+      <div class="best-service__column">
+        <a href="#" target="_blank" rel="noopener" class="best-service__content best-service__content--03">
+          <svg>
+            <use href="#file" />
+          </svg>
+          <h3 class="best-service__subtitle"><span>03</span>Lowest Commission</h3>
+          <p class="best-service__desc">We give you lowest commision and many more.</p>
+          <div class="best-service__link">Learn More</div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="weekly-house _indents">
+  <div class="weekly-house__container _container">
+    <div class="weekly-house__body">
+      <div class="weekly-house__column-1">
+        <div class="weekly-house__header section-header"><span>02</span>WEEKLY HOUSE</div>
+        <h2 class="weekly-house__title title">Get House of The Week</h2>
+        <ul class="weekly-house__list">
+          <li>Architectural Inspection</li>
+          <li>Reduction of Utility Fees</li>
+          <li>Home Purchase Discount</li>
+        </ul>
+        <a href="#" target="_blank" rel="noopener" class="weekly-house__link">LEARN MORE</a>
+      </div>
+      <div class="weekly-house__column-2 house-card">
+        <div class="house-card__body">
+          <a href="#" class="house-card__image _img">
+            <picture>
+              <source srcset="img/weekly-house/01.webp" type="image/webp" />
+              <img src="img/weekly-house/01.jpg" alt="Ooops!" />
+            </picture>
+            <span>House</span>
+          </a>
+          <div class="house-card__info">
+            <h3><a href="#" class="house-card__title">North Echo Avenue</a></h3>
+            <p class="house-card__text">Jl. Soekarno — Hatta No. 123, Denpasar</p>
+            <div class="house-card__area">Rp 1,500 M</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="best-prop _indents">
+  <div class="best-prop__container _container">
+    <div class="best-prop__header section-header"><span>03</span>BEST PROPERTIES</div>
+    <div class="best-prop__box-heading">
+      <h2 class="best-prop__title title">Best Properties Around You</h2>
+      <div class="best-prop__link learn-more-link" data-da=".best-prop__container, 991.98, last">
+        <a href="#" target="_blank" rel="noopener"><span>Learn more about this</span></a>
+      </div>
+    </div>
+    <div class="best-prop__slider slider-best-prop">
+      <div class="slider-best-prop__container swiper-container">
+        <div class="slider-best-prop__wrapper swiper-wrapper">
+          <div class="slider-best-prop__slide swiper-slide">
+            <div class="house-card__body">
+              <a href="#" class="house-card__image _img house-card__image--best-prop">
+                <picture>
+                  <source data-srcset="img/best-properties/01.webp" type="image/webp" srcset="#" />
+                  <img class="swiper-lazy" data-src="img/best-properties/01.jpg" src="#" alt="Ooops!" />
+                </picture>
+                <span>Apartment</span>
+                <div class="swiper-lazy-preloader"></div>
+              </a>
+              <div class="house-card__info">
+                <h3><a href="#" class="house-card__title house-card__title--best-prop">Denpasar Suite</a></h3>
+                <p class="house-card__text house-card__text--best-prop">Jl. Soekarno - Hatta No. 123, Denpasar</p>
+                <div class="house-card__area">Rp 450 Juta</div>
+              </div>
+            </div>
+          </div>
+          <div class="slider-best-prop__slide swiper-slide">
+            <div class="house-card__body">
+              <a href="#" class="house-card__image _img house-card__image--best-prop">
+                <picture>
+                  <source data-srcset="img/best-properties/02.webp" type="image/webp" srcset="#" />
+                  <img class="swiper-lazy" data-src="img/best-properties/02.jpg" src="#" alt="Ooops!" />
+                </picture>
+                <span>Apartment</span>
+                <div class="swiper-lazy-preloader"></div>
+              </a>
+              <div class="house-card__info">
+                <h3><a href="#" class="house-card__title house-card__title--best-prop">Echo Park Suite</a></h3>
+                <p class="house-card__text house-card__text--best-prop">Jl. Soekarno — Hatta No. 123, Denpasar</p>
+                <div class="house-card__area">Rp 550 Juta</div>
+              </div>
+            </div>
+          </div>
+          <div class="slider-best-prop__slide swiper-slide">
+            <div class="house-card__body">
+              <a href="#" class="house-card__image _img house-card__image--best-prop">
+                <picture>
+                  <source data-srcset="img/best-properties/03.webp" type="image/webp" srcset="#" />
+                  <img class="swiper-lazy" data-src="img/best-properties/03.jpg" src="#" alt="Ooops!" />
+                </picture>
+                <span>House</span>
+                <div class="swiper-lazy-preloader"></div>
+              </a>
+              <div class="house-card__info">
+                <h3><a href="#" class="house-card__title house-card__title--best-prop">Bali Residence</a></h3>
+                <p class="house-card__text house-card__text--best-prop">Jl. Soekarno — Hatta No. 123, Denpasar</p>
+                <div class="house-card__area">Rp 750 Juta</div>
+              </div>
+            </div>
+          </div>
+          <div class="slider-best-prop__slide swiper-slide">
+            <div class="house-card__body">
+              <a href="#" class="house-card__image _img house-card__image--best-prop">
+                <picture>
+                  <source data-srcset="img/best-properties/04.webp" type="image/webp" srcset="#" />
+                  <img class="swiper-lazy" data-src="img/best-properties/04.jpg" src="#" alt="Ooops!" />
+                </picture>
+                <span>Villa</span>
+                <div class="swiper-lazy-preloader"></div>
+              </a>
+              <div class="house-card__info">
+                <h3><a href="#" class="house-card__title house-card__title--best-prop">Bali Echo</a></h3>
+                <p class="house-card__text house-card__text--best-prop">Jl. Soekarno — Hatta No. 123, Denpasar</p>
+                <div class="house-card__area">Rp 75 Juta</div>
+              </div>
+            </div>
+          </div>
+          <div class="slider-best-prop__slide swiper-slide">
+            <div class="house-card__body">
+              <a href="#" class="house-card__image _img house-card__image--best-prop">
+                <picture>
+                  <source data-srcset="img/best-properties/01.webp" type="image/webp" srcset="#" />
+                  <img class="swiper-lazy" data-src="img/best-properties/01.jpg" src="#" alt="Ooops!" />
+                </picture>
+                <span>Apartment</span>
+                <div class="swiper-lazy-preloader"></div>
+              </a>
+              <div class="house-card__info">
+                <h3><a href="#" class="house-card__title house-card__title--best-prop">Denpasar Suite</a></h3>
+                <p class="house-card__text house-card__text--best-prop">Jl. Soekarno - Hatta No. 123, Denpasar</p>
+                <div class="house-card__area">Rp 450 Juta</div>
+              </div>
+            </div>
+          </div>
+          <div class="slider-best-prop__slide swiper-slide">
+            <div class="house-card__body">
+              <a href="#" class="house-card__image _img house-card__image--best-prop">
+                <picture>
+                  <source data-srcset="img/best-properties/03.webp" type="image/webp" srcset="#" />
+                  <img class="swiper-lazy" data-src="img/best-properties/03.jpg" src="#" alt="Ooops!" />
+                </picture>
+                <span>House</span>
+                <div class="swiper-lazy-preloader"></div>
+              </a>
+              <div class="house-card__info">
+                <h3><a href="#" class="house-card__title house-card__title--best-prop">Bali Residence</a></h3>
+                <p class="house-card__text house-card__text--best-prop">Jl. Soekarno — Hatta No. 123, Denpasar</p>
+                <div class="house-card__area">Rp 750 Juta</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="testimonies _indents">
+  <div class="testimonies__container _container">
+    <div class="testimonies__header section-header"><span>04</span>TESTIMONIES</div>
+    <div class="testimonies__box-heading">
+      <h2 class="testimonies__title title">What Our Customers Said?</h2>
+      <div class="testimonies__link learn-more-link" data-da=".testimonies__container, 991.98, last">
+        <a href="#" target="_blank" rel="noopener"><span>Learn more about this</span></a>
+      </div>
+    </div>
+    <div class="testimonies__slider slider-testimonies">
+      <div class="slider-testimonies__container swiper-container">
+        <div class="slider-testimonies__wrapper swiper-wrapper">
+          <div class="slider-testimonies__slide swiper-slide">
+            <div class="slider-testimonies__body">
+              <div class="slider-testimonies__column-image">
+                <div class="slider-testimonies__image _img">
+                  <picture>
+                    <source data-srcset="img/testimonies/01.webp" type="image/webp" srcset="#" />
+                    <img class="swiper-lazy" data-src="img/testimonies/01.jpg" src="#" alt="Ooops!" />
+                  </picture>
+                  <div class="swiper-lazy-preloader"></div>
+                </div>
+              </div>
+              <div class="slider-testimonies__column-text">
+                <p class="slider-testimonies__text" data-simplebar>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque amet velit risus quam. Platea pulvinar nunc tincidunt turpis nulla. Ullamcorper augue
+                  ullamcorper lectus ac. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque amet velit risus quam. Platea pulvinar nunc tincidunt turpis nulla.
+                  Ullamcorper augue ullamcorper lectus ac. ullamcorper lectus ac. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque amet velit risus quam.
+                  Platea pulvinar nunc tincidunt turpis nulla. Ullamcorper augue ullamcorper lectus ac.
+                </p>
+                <div class="slider-testimonies__user">
+                  <div class="slider-testimonies__userpic _img">
+                    <picture>
+                      <source srcset="img/testimonies/userpic-1.webp" type="image/webp" />
+                      <img src="img/testimonies/userpic-1.jpg" alt="Ooops!" />
+                    </picture>
+                  </div>
+                  <div class="slider-testimonies__name">Jenny Wilson</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="slider-testimonies__slide swiper-slide">
+            <div class="slider-testimonies__body">
+              <div class="slider-testimonies__column-image">
+                <div class="slider-testimonies__image _img">
+                  <picture>
+                    <source data-srcset="img/testimonies/02.webp" type="image/webp" srcset="#" />
+                    <img class="swiper-lazy" data-src="img/testimonies/02.jpg" src="#" alt="Ooops!" />
+                  </picture>
+                  <div class="swiper-lazy-preloader"></div>
+                </div>
+              </div>
+              <div class="slider-testimonies__column-text">
+                <p class="slider-testimonies__text" data-simplebar>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque amet velit risus quam. Platea pulvinar nunc tincidunt turpis nulla. Ullamcorper augue
+                  ullamcorper lectus ac. Dui tempor, proin integer cras. Hac faucibus congue ultricies vestibulum vulputate sapien.
+                </p>
+                <div class="slider-testimonies__user">
+                  <div class="slider-testimonies__userpic _img">
+                    <picture>
+                      <source srcset="img/testimonies/userpic-1.webp" type="image/webp" />
+                      <img src="img/testimonies/userpic-1.jpg" alt="Ooops!" />
+                    </picture>
+                  </div>
+                  <div class="slider-testimonies__name">Jenny Wilson</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="slider-testimonies__slide swiper-slide">
+            <div class="slider-testimonies__body">
+              <div class="slider-testimonies__column-image">
+                <div class="slider-testimonies__image _img">
+                  <picture>
+                    <source data-srcset="img/testimonies/03.webp" type="image/webp" srcset="#" />
+                    <img class="swiper-lazy" data-src="img/testimonies/03.jpg" src="#" alt="Ooops!" />
+                  </picture>
+                  <div class="swiper-lazy-preloader"></div>
+                </div>
+              </div>
+              <div class="slider-testimonies__column-text">
+                <p class="slider-testimonies__text" data-simplebar>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque amet velit risus quam. Platea pulvinar nunc tincidunt turpis nulla. Ullamcorper augue
+                  ullamcorper lectus ac. Dui tempor, proin integer cras.
+                </p>
+                <div class="slider-testimonies__user">
+                  <div class="slider-testimonies__userpic _img">
+                    <picture>
+                      <source srcset="img/testimonies/userpic-1.webp" type="image/webp" />
+                      <img src="img/testimonies/userpic-1.jpg" alt="Ooops!" />
+                    </picture>
+                  </div>
+                  <div class="slider-testimonies__name">Jenny Wilson</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="slider-testimonies__buttons slider-btn swiper-button">
+          <div class="slider-testimonies__button-prev slider-btn__button-prev swiper-button-prev">
+            <svg>
+              <use href="#angle-slider-prev" />
+            </svg>
+          </div>
+          <div class="slider-testimonies__button-next slider-btn__button-next swiper-button-next">
+            <svg>
+              <use href="#angle-slider-next" />
+            </svg>
+          </div>
+        </div>
+        <div class="slider-testimonies__pagination">
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="blogarticle _indents">
+  <div class="blogarticle__container _container">
+    <div class="blogarticle__body">
+      <div class="blogarticle__column-1">
+        <div class="blogarticle__box" data-da=".blogarticle__container, 991.98, first">
+          <div class="blogarticle__header section-header"><span>05</span>BLOG & ARTICLE</div>
+          <h2 class="blogarticle__title title">Always Check Our Latest Blog</h2>
+        </div>
+        <article class="blogarticle__article-mini article-preview-mini">
+          <div class="article-preview-mini__inner">
+            <a href="#" target="_blank" rel="noopener" aria-label="Some Essential Home Care" class="article-preview-mini__image _img">
+              <picture>
+                <source srcset="img/blog-article/02.webp" type="image/webp" />
+                <img src="img/blog-article/02.jpg" alt="Ooops!" />
+              </picture>
+            </a>
+            <div class="article-preview-mini__box">
+              <h3><a href="#" target="_blank" rel="noopener" class="article-preview-mini__title">Some Essential Home Care</a></h3>
+              <div class="article-preview-mini__author">Sophia William</div>
+            </div>
+          </div>
+        </article>
+        <article class="blogarticle__article-mini article-preview-mini">
+          <div class="article-preview-mini__inner">
+            <a href="#" target="_blank" rel="noopener" aria-label="Wall Color Selection ..." class="article-preview-mini__image _img">
+              <picture>
+                <source srcset="img/blog-article/03.webp" type="image/webp" />
+                <img src="img/blog-article/03.jpg" alt="Ooops!" />
+              </picture>
+            </a>
+            <div class="article-preview-mini__box">
+              <h3><a href="#" target="_blank" rel="noopener" class="article-preview-mini__title">Wall Color Selection Affe...</a></h3>
+              <div class="article-preview-mini__author">Franklin Jauhari</div>
+            </div>
+          </div>
+        </article>
+        <article class="blogarticle__article-mini article-preview-mini">
+          <div class="article-preview-mini__inner">
+            <a href="#" target="_blank" rel="noopener" aria-label="Let The Hot House be ..." class="article-preview-mini__image _img">
+              <picture>
+                <source srcset="img/blog-article/04.webp" type="image/webp" />
+                <img src="img/blog-article/04.jpg" alt="Ooops!" />
+              </picture>
+            </a>
+            <div class="article-preview-mini__box">
+              <h3><a href="#" target="_blank" rel="noopener" class="article-preview-mini__title">Let The Hot House be Exp...</a></h3>
+              <div class="article-preview-mini__author">Marvin William</div>
+            </div>
+          </div>
+        </article>
+      </div>
+      <div class="blogarticle__column-2">
+        <article class="blogarticle__article article-preview">
+          <div class="article-preview__inner">
+            <a href="#" target="_blank" rel="noopener" aria-label="This is The Appearence ..." class="article-preview__image _img">
+              <picture>
+                <source srcset="img/blog-article/01.webp" type="image/webp" />
+                <img src="img/blog-article/01.jpg" alt="Ooops!" />
+              </picture>
+            </a>
+            <div class="article-preview__user-info">
+              <a href="#" target="_blank" rel="noopener" aria-label="Albert Florention, Writer" class="article-preview__userpic _img">
+                <picture>
+                  <source srcset="img/blog-article/userpic.webp" type="image/webp" />
+                  <img src="img/blog-article/userpic.jpg" alt="Ooops!" />
+                </picture>
+              </a>
+              <div class="article-preview__box">
+                <div class="article-preview__name">Albert Florention</div>
+                <div class="article-preview__profession">Writer</div>
+              </div>
+            </div>
+          </div>
+          <h2><a href="#" target="_blank" rel="noopener" class="article-preview__title">This is The Appearence of The Interior of The Newest...</a></h2>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+      </main>
+
+      <footer class="footer">
+  <div class="footer__container _container">
+    <div class="footer__row">
+      <div class="footer__column-1">
+        <h2 class="footer__title title" data-da=".footer__container, 991.98, first">Contact Us For More Information</h2>
+        <address class="footer__info info-footer">
+          <div class="info-footer__box">
+            <p class="info-footer__label">Mail</p>
+            <a href="mailto:dream@house.com">dream@house.com</a>
+          </div>
+          <div class="info-footer__box">
+            <p class="info-footer__label">Phone</p>
+            <a href="tel:+6281778890999">+62 8177 8890 999</a>
+          </div>
+          <div class="info-footer__box">
+            <p class="info-footer__label">Address</p>
+            <p>Jl. MH. Thamrin No 990, Surabaya, Jawa Timur, Indonesia</p>
+          </div>
+          <div class="info-footer__box">
+            <p class="info-footer__label">Social Media</p>
+            <ul class="info-footer__social-list">
+              <li>
+                <a href="#" target="_blank" rel="noopener" class="info-footer__social-link" aria-label="Our Facebook">
+                  <svg>
+                    <use href="#facebook" />
+                  </svg>
+                </a>
+              </li>
+              <li>
+                <a href="#" target="_blank" rel="noopener" class="info-footer__social-link" aria-label="Our Twitter">
+                  <svg>
+                    <use href="#twitter" />
+                  </svg>
+                </a>
+              </li>
+              <li>
+                <a href="#" target="_blank" rel="noopener" class="info-footer__social-link" aria-label="Our Instagram">
+                  <svg>
+                    <use href="#instagram" />
+                  </svg>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </address>
+      </div>
+      <div class="footer__column-2">
+        <div class="footer__form form">
+          <form class="form__body" id="form-ask" action="#" method="POST">
+            <h2 class="form__title">What do you want to ask?</h2>
+            <div class="form__item form__item--placeholder">
+              <input class="form__input" id="form-name" type="text" maxlength="50" autocomplete="off" name="username" placeholder=" " required />
+              <label class="form__label" for="form-name">Full Name</label>
+            </div>
+
+            <div class="form__item form__item--placeholder">
+              <input
+                class="form__input"
+                id="form-email"
+                type="text"
+                maxlength="255"
+                autocomplete="off"
+                name="useremail"
+                placeholder=" "
+                pattern="^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,8})+$"
+                title="For example: from@domain.com"
+                required
+              />
+              <label class="form__label" for="form-email">Email Address</label>
+            </div>
+
+            <div class="form__item form__item--placeholder">
+              <textarea class="form__input form__input--textarea" id="form-message" maxlength="350" name="usermessage" placeholder=" " required></textarea>
+              <label class="form__label" for="form-message">Message</label>
+            </div>
+
+            <button class="form__button btn" type="submit">Send Now</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    </div>
+
+    <div id="popup" class="popup" aria-hidden="true">
+  <div class="popup__container">
+    <div class="popup__content" role="dialog" aria-modal="true" aria-labeledby="sign-in" tabindex="-1">
+      <button class="popup__close close-popup" type="button" aria-label="Close"></button>
+      <div class="popup__form form-popup">
+        <form class="form-popup__body" id="form-popup" action="#" method="POST">
+          <h2 class="form-popup__title" id="sign-in">Sign in to Dream</h2>
+
+          <div class="form-popup__item form-popup__item--placeholder">
+            <input
+              class="form-popup__input"
+              id="form-popup-email"
+              type="text"
+              maxlength="255"
+              autocomplete="off"
+              name="useremail"
+              placeholder=" "
+              pattern="^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,8})+$"
+              title="For example: from@domain.com"
+              required
+            />
+            <label class="form-popup__label" for="form-popup-email">Email</label>
+          </div>
+          <div class="form-popup__item form-popup__item--placeholder">
+            <input class="form-popup__input" id="form-popup-password" type="password" autocomplete="off" name="userpassword" placeholder=" " required />
+            <label class="form-popup__label" for="form-popup-password">Password</label>
+          </div>
+
+          <button class="form-popup__button btn" type="submit">Sign in</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/3.10.1/minified.min.js" nomodule></script>
+
+<script src="resources/swiper/swiper-bundle.min.js"></script>
+
+<script src="js/main.min.js"></script>
+
+<script src="resources/simplebar/simplebar.min.js"></script>
+
+  </body>
+</html>
